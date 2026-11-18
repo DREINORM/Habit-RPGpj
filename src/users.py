@@ -24,7 +24,6 @@ class User:
             print(f"персонаж {self.name}, умер")
             return
 
-        
     def heal(self, amount):
         if amount <= 0:
             return
@@ -38,15 +37,12 @@ class User:
             self.health = 100
             return
 
-        
     def is_alive(self):
         return self.health > 0 
-
-    
+ 
     def get_required_xp(self):
         return int(10 * self.level**1.5)
 
-    
     def level_up(self):
         required_xp = self.get_required_xp()
 
@@ -55,14 +51,12 @@ class User:
             self.xp -= required_xp
             required_xp = self.get_required_xp()
 
-
     def add_xp(self, amount):
         if amount < 0:
             return 
         
         self.xp += amount
         self.level_up()
-
 
     def spend_gold(self, price):
         if price <= 0:
@@ -73,6 +67,7 @@ class User:
         
         self.gold -= price
         return True
+    
     def show_stats(self):
         print("=================СТАТИСТИКА ПЕРСОНАЖА=================")
         print(f'ИМЯ ПЕРСОНАЖА:{self.name}')
